@@ -23,7 +23,7 @@ export function ClaimUsenameForm() {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<ClaimUsernameFormData>({
         resolver: zodResolver(claimUsernameFormSchema)
     })
-
+        //Cria essa const para poder usar o router, e faz essa função para mandar o nome que vc digitou para a proxima tela 
         const router = useRouter();
 
         async function handleClaimUsername(data: ClaimUsernameFormData) {
@@ -43,7 +43,8 @@ export function ClaimUsenameForm() {
 
 
                 />
-
+                {/*esse "isSubmitting serve para o botao ficar em carregamento e nao permitir que o usuario fique apertando
+                diversas vezes no carregamento" */}
                 <Button size="sm" type="submit" disabled={isSubmitting}>
                     Reservar Usuário
                     <ArrowRight />
